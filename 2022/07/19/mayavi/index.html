@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>photos |  Edliu</title>
+      <title>安装mayavi遇到的一些问题 |  Edliu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -56,8 +56,8 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="page-"
-  class="article article-type-page"
+  id="post-mayavi"
+  class="article article-type-post"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
@@ -67,16 +67,76 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  photos
+  安装mayavi遇到的一些问题
 </h1>
  
 
       
     </header>
-       
+     
+    <div class="article-meta">
+      <a href="/2022/07/19/mayavi/" class="article-date">
+  <time datetime="2022-07-19T09:13:42.523Z" itemprop="datePublished">2022-07-19</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">575</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>mayavi库相较于matplot能够更好的展现3D的视图，最近在学习python的时候要用到mayavi这个库，由于我本人用的是anaconda版本的python，默认python版本是3.8.8版本的，下了mayavi却一直报错，后来去查了查应该是python版本问题，于是搞了个3.7版本的虚拟环境，直接在anaconda下载mayavi仍然一直报错，后来尝试了直接在cmd上pip install等等方法都不可行，搞了一晚上还没搞清楚。</p>
+<p>这个过程我也遇到了很多网上相似的问题，但是解决方案回答在互联网上好像很少，我把我的解决流程发上来，供各位参考。</p>
+<p>后来干脆手动安装whl的包</p>
+<p>安装地址：<a target="_blank" rel="noopener" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">pythonlibs</a></p>
+<p>下载内容：mayavi，PyQt4，traits，VTK</p>
+<p>这里需要注意的是下载的包必须是匹配的。</p>
+<p>避免失误的话，这里你可以参考我的下载的包。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mayavi-<span class="number">4.7</span><span class="number">.3</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">PyQt4-<span class="number">4.11</span><span class="number">.4</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">traits-<span class="number">6.3</span><span class="number">.1</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">VTK-<span class="number">9.0</span><span class="number">.3</span>-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<p>安装mayavi并不难，关键是mayavi所依赖的环境复杂，前期我下载的时候是胡乱安装的，导致我运行程序的时候一直报错。</p>
+<p>将下载的四个文件的文件夹通过3.7的虚拟环境打开，然后直接输入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install mayavi-<span class="number">4.7</span><span class="number">.3</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">pip install PyQt4-<span class="number">4.11</span><span class="number">.4</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">pip install traits-<span class="number">6.3</span><span class="number">.1</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">pip install VTK-<span class="number">9.0</span><span class="number">.3</span>-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<p>即可。</p>
+<p>以上的解决方案在互联网上已经有了，下面是一些我遇到的问题。</p>
+<h4 id="报错AttributeError-type-object-‘DialogCode’-has-no-attribute-‘Accepted’解决方案"><a href="#报错AttributeError-type-object-‘DialogCode’-has-no-attribute-‘Accepted’解决方案" class="headerlink" title="报错AttributeError: type object ‘DialogCode’ has no attribute ‘Accepted’解决方案"></a>报错AttributeError: type object ‘DialogCode’ has no attribute ‘Accepted’解决方案</h4><p>在命令端下载PyQt5以及PyQt5配套的tools库即可。</p>
+<p><img src="https://s1.328888.xyz/2022/05/20/DoAiQ.png" alt="DoAiQ.png"></p>
+<p>然后将pyqt5_tools文件的地址添加到path变量里面即可。</p>
+<h4 id="VTK版本不匹配解决方案"><a href="#VTK版本不匹配解决方案" class="headerlink" title="VTK版本不匹配解决方案"></a>VTK版本不匹配解决方案</h4><p>WARNING: Imported VTK version (9.1) does not match the one used</p>
+<p>to build the TVTK classes (9.0). This may cause problems.</p>
+<p>Please rebuild TVTK.</p>
+<p>解决办法：将现版本的VTK（9.1)uninstall，然后install 9.0版本的VTK</p>
+<p>直接在命令端输入</p>
+<p>pip uninstall VTK&#x3D;&#x3D;9.1</p>
+<p>待完成以后再输入</p>
+<p>pip install VTK&#x3D;&#x3D;9.0</p>
+<h4 id="检测mayavi-mlab是否正常运行"><a href="#检测mayavi-mlab是否正常运行" class="headerlink" title="检测mayavi.mlab是否正常运行"></a>检测mayavi.mlab是否正常运行</h4><p>在ipython中输入：</p>
+<p>from mayavi import mlab</p>
+<p>如果不报错即成功解决问题</p>
+ 
       <!-- reward -->
       
     </div>
@@ -140,7 +200,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://edliu.top/photos/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://edliu.top/2022/07/19/mayavi/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -149,6 +209,25 @@
   </div>
 
    
+  <nav class="article-nav">
+    
+      <a href="/2022/07/19/svd%20linear/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            机器学习-SVD分解算法的物理意义
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/07/19/2022-05-14-backtrack/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Backtrack 回溯算法</div>
+      </a>
+    
+  </nav>
+
    
 <!-- valine评论 -->
 <div id="vcomments-box">
@@ -198,7 +277,8 @@
 </style>
 
  
-    
+   
+     
 </article>
 
 </section>
@@ -349,6 +429,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
