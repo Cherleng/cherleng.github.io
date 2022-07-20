@@ -77,7 +77,11 @@
     <div class="article-meta">
       <a href="/2022/07/19/mayavi/" class="article-date">
   <time datetime="2022-07-19T09:13:42.523Z" itemprop="datePublished">2022-07-19</time>
-</a>   
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
@@ -115,25 +119,28 @@
 <p>这里需要注意的是下载的包必须是匹配的。</p>
 <p>避免失误的话，这里你可以参考我的下载的包。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mayavi-<span class="number">4.7</span><span class="number">.3</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">PyQt4-<span class="number">4.11</span><span class="number">.4</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">traits-<span class="number">6.3</span><span class="number">.1</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">VTK-<span class="number">9.0</span><span class="number">.3</span>-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
-
 <p>安装mayavi并不难，关键是mayavi所依赖的环境复杂，前期我下载的时候是胡乱安装的，导致我运行程序的时候一直报错。</p>
 <p>将下载的四个文件的文件夹通过3.7的虚拟环境打开，然后直接输入：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install mayavi-<span class="number">4.7</span><span class="number">.3</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">pip install PyQt4-<span class="number">4.11</span><span class="number">.4</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">pip install traits-<span class="number">6.3</span><span class="number">.1</span>-cp37-cp37m-win_amd64.whl</span><br><span class="line">pip install VTK-<span class="number">9.0</span><span class="number">.3</span>-cp37-cp37m-win_amd64.whl</span><br></pre></td></tr></table></figure>
-
 <p>即可。</p>
 <p>以上的解决方案在互联网上已经有了，下面是一些我遇到的问题。</p>
-<h4 id="报错AttributeError-type-object-‘DialogCode’-has-no-attribute-‘Accepted’解决方案"><a href="#报错AttributeError-type-object-‘DialogCode’-has-no-attribute-‘Accepted’解决方案" class="headerlink" title="报错AttributeError: type object ‘DialogCode’ has no attribute ‘Accepted’解决方案"></a>报错AttributeError: type object ‘DialogCode’ has no attribute ‘Accepted’解决方案</h4><p>在命令端下载PyQt5以及PyQt5配套的tools库即可。</p>
-<p><img src="https://s1.328888.xyz/2022/05/20/DoAiQ.png" alt="DoAiQ.png"></p>
+<h4 id="报错attributeerror-type-object-dialogcode-has-no-attribute-accepted解决方案">报错AttributeError: type object 'DialogCode' has no attribute 'Accepted'解决方案</h4>
+<p>在命令端下载PyQt5以及PyQt5配套的tools库即可。</p>
+<figure>
+<img src="https://s1.328888.xyz/2022/05/20/DoAiQ.png" alt="DoAiQ.png" /><figcaption>DoAiQ.png</figcaption>
+</figure>
 <p>然后将pyqt5_tools文件的地址添加到path变量里面即可。</p>
-<h4 id="VTK版本不匹配解决方案"><a href="#VTK版本不匹配解决方案" class="headerlink" title="VTK版本不匹配解决方案"></a>VTK版本不匹配解决方案</h4><p>WARNING: Imported VTK version (9.1) does not match the one used</p>
+<h4 id="vtk版本不匹配解决方案">VTK版本不匹配解决方案</h4>
+<p>WARNING: Imported VTK version (9.1) does not match the one used</p>
 <p>to build the TVTK classes (9.0). This may cause problems.</p>
 <p>Please rebuild TVTK.</p>
 <p>解决办法：将现版本的VTK（9.1)uninstall，然后install 9.0版本的VTK</p>
 <p>直接在命令端输入</p>
-<p>pip uninstall VTK&#x3D;&#x3D;9.1</p>
+<p>pip uninstall VTK==9.1</p>
 <p>待完成以后再输入</p>
-<p>pip install VTK&#x3D;&#x3D;9.0</p>
-<h4 id="检测mayavi-mlab是否正常运行"><a href="#检测mayavi-mlab是否正常运行" class="headerlink" title="检测mayavi.mlab是否正常运行"></a>检测mayavi.mlab是否正常运行</h4><p>在ipython中输入：</p>
+<p>pip install VTK==9.0</p>
+<h4 id="检测mayavi.mlab是否正常运行">检测mayavi.mlab是否正常运行</h4>
+<p>在ipython中输入：</p>
 <p>from mayavi import mlab</p>
 <p>如果不报错即成功解决问题</p>
  
@@ -205,6 +212,8 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
+
     </footer>
   </div>
 
@@ -362,19 +371,11 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags">旅行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/about">摄影</a>
-    </li>
-    
-    <li class="nav-item">
       <a class="nav-item-link" href="/friends">友链</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/about">关于我</a>
+      <a class="nav-item-link" href="/about">关于</a>
     </li>
     
   </ul>

@@ -6,7 +6,7 @@
   <link href="http://edliu.top/atom.xml" rel="self"/>
   
   <link href="http://edliu.top/"/>
-  <updated>2022-07-19T09:14:26.838Z</updated>
+  <updated>2022-07-20T02:48:42.110Z</updated>
   <id>http://edliu.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://edliu.top/2022/07/19/svd%20linear/"/>
     <id>http://edliu.top/2022/07/19/svd%20linear/</id>
     <published>2022-07-19T09:13:42.529Z</published>
-    <updated>2022-07-19T09:14:26.838Z</updated>
+    <updated>2022-07-20T02:48:42.110Z</updated>
     
     
       
@@ -34,6 +34,10 @@
     
     
     
+    <category term="学习" scheme="http://edliu.top/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://edliu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -42,7 +46,7 @@
     <link href="http://edliu.top/2022/07/19/mayavi/"/>
     <id>http://edliu.top/2022/07/19/mayavi/</id>
     <published>2022-07-19T09:13:42.523Z</published>
-    <updated>2022-07-19T09:14:05.502Z</updated>
+    <updated>2022-07-20T02:48:23.008Z</updated>
     
     
       
@@ -55,6 +59,10 @@
     
     
     
+    <category term="学习" scheme="http://edliu.top/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://edliu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -63,19 +71,27 @@
     <link href="http://edliu.top/2022/07/19/2022-05-14-backtrack/"/>
     <id>http://edliu.top/2022/07/19/2022-05-14-backtrack/</id>
     <published>2022-07-19T09:07:38.930Z</published>
-    <updated>2022-07-19T09:08:17.066Z</updated>
+    <updated>2022-07-20T02:48:53.729Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h4 id=&quot;1-引言&quot;&gt;&lt;a href=&quot;#1-引言&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h4 id=&quot;引言&quot;&gt;1.引言&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;黄色的树林里分出两条路，可惜我不能同时去涉足,我选择了人迹稀少的一条，从此决定了我一生的道路&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4</summary>
         
       
     
     
     
+    <category term="学习" scheme="http://edliu.top/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://edliu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
