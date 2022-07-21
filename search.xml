@@ -394,4 +394,38 @@ A =  \left|\begin{matrix}
         <tag>学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Git学习笔记 1 - 什么是Git？</title>
+    <url>/2022/07/21/git1-1/</url>
+    <content><![CDATA[<hr />
+<h3 id="一.什么是git">一.什么是Git？</h3>
+<p>作为一名开发人员，在日常开发中，我们能经常见到Git这个字眼，那么Git到底是什么？为什么那么重要？在开发过程中为什么需要用到它？在我们开始学习Git之前，这些东西是我们需要知道的。接下来的文字也许能让你进一步理解Git的它的历史演变以及它的重要性。</p>
+<p>Git是一个<strong>分布式版本控制系统</strong>。</p>
+<p>什么是版本控制系统？一个很简单的例子，在你编辑文档的时候，因为某些失误，你把一个很重要的信息给删掉了，你并不着急，因为你此时可以选择撤销按钮，将之前误删的信息给还原。</p>
+<p><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/26/5d/8d/265d8db0-5081-2d57-482f-d3baa615f536/AppIcon-0-1x_U007emarketing-0-7-0-sRGB-0-0-0-85-220-0.png/1200x630wa.png" /></p>
+<p>其实可以这样理解，你的每一个操作，对于文档来说就是一个独立的“版本”。</p>
+<p>现在很多信息的填写，都用到了“共享文档”这个体系，其实就是避免了多方对信息的处理不一致导致的冲突，我在编辑文档的同时也能看得见你的编辑。但放在多年前，如果一个文档你需要别人对其进行一些增删改查，而你在别人帮你修改的同时自己也将文档增添润色了一下，等到别人把已经改正的文档发给你时，你怎么知道他改了哪些地方，哪些地方和你润色后的版本有了冲突呢？</p>
+<p>而分布式，就是<strong>非集中式</strong>（对，这是句废话）</p>
+<p>以往的集中式，特别繁琐，需要有一个中央服务器，如果要进行修改，要先得到中央服务器的服务版本，然后修改以后再推给中央服务器，是一种自上而下的版本管理方式。像SVN，CVS 等这些版本管理系统就是集中式的。</p>
+<p>而分布式，不需要进行联网可以进行修改操作（工作区），然后再提交给其他服务器（电脑），这时候不需要一个中央服务器的存在，而是每一个独立的电脑就是一个独立的服务器。</p>
+<p>这时候就要Git登场了。</p>
+<h4 id="git的诞生">1.Git的诞生</h4>
+<p>Linus 建立了开源 Linux以后，依然要管理从世界各地志愿者为 Linux编写的代码，全世界那么多代码，初期Linus确实是靠自己个人管理的，后来Linux越来越壮大，代码量如此之大，是时候选一个<strong>版本控制系统</strong>来管理这些代码了，之前为什么不选择使用CVS、SVN这些<strong>集中式</strong>版本控制系统，原因是因为这些系统不仅速度慢，而且必须通过联网才能使用。其他的商用控制系统Linus不选，因为与Linux开源精神极其不符。Linux 内核开源项目有着为数众多的参与者。 绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上.（1991－2002年间）</p>
+<p>这时候BitKeeper愿意免费为Linux社区提供免费的版本控制服务，但作为具有巨大开源精神的Linux社区志愿者们多次尝试破解BitKeeper的协议...</p>
+<p>到了 2005 年，开发 BitKeeper 的商业公司同 Linux 内核开源社区的合作关系结束，他们收回了 Linux 内核社区免费使用 BitKeeper 的权力。 这就迫使Linus Torvalds重新思考如何管理这些世界各地的代码。</p>
+<p>两周后，分布式控制系统Git在Linus的家中诞生。</p>
+<p><img src="https://imgix.gizmodo.com.au/content/uploads/sites/2/2018/01/linusfinger.jpg?ar=16:9&amp;auto=format&amp;fit=crop&amp;q=65&amp;w=1280" /></p>
+<h3 id="二.git的安装">二.Git的安装</h3>
+<p>访问<a href="https://git-scm.com/downloads">Git官网</a> 下载对应的系统版本，由于我本人使用的是Windows版本，故下载Git for windows版本。</p>
+<hr />
+<hr />
+<p>本笔记参考了以下教材：</p>
+<p>1.<a href="https://git-scm.com/">Git官方文档</a></p>
+<p>2.<a href="https://www.liaoxuefeng.com/">廖雪峰Git博客教程</a></p>
+<hr />
+]]></content>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
 </search>
