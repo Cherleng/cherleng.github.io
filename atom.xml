@@ -6,7 +6,7 @@
   <link href="http://edliu.top/atom.xml" rel="self"/>
   
   <link href="http://edliu.top/"/>
-  <updated>2022-07-21T08:26:33.620Z</updated>
+  <updated>2022-07-28T07:15:30.872Z</updated>
   <id>http://edliu.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git学习笔记</title>
+    <link href="http://edliu.top/2022/07/23/git2/"/>
+    <id>http://edliu.top/2022/07/23/git2/</id>
+    <published>2022-07-23T09:07:48.000Z</published>
+    <updated>2022-07-28T07:15:30.872Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;hr /&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习" scheme="http://edliu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Git学习笔记 1 - 什么是Git？</title>
