@@ -6,7 +6,7 @@
   <link href="http://edliu.top/atom.xml" rel="self"/>
   
   <link href="http://edliu.top/"/>
-  <updated>2022-07-28T07:21:38.726Z</updated>
+  <updated>2022-07-29T06:59:41.801Z</updated>
   <id>http://edliu.top/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Git学习笔记</title>
+    <title>Git学习笔记 2 - 本地git初操作</title>
     <link href="http://edliu.top/2022/07/23/git2/"/>
     <id>http://edliu.top/2022/07/23/git2/</id>
     <published>2022-07-23T09:07:48.000Z</published>
-    <updated>2022-07-28T07:21:38.726Z</updated>
+    <updated>2022-07-29T06:59:41.801Z</updated>
     
     
       
@@ -35,6 +35,8 @@
     
     
     
+    <category term="git" scheme="http://edliu.top/categories/git/"/>
+    
     
     <category term="学习" scheme="http://edliu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
@@ -45,19 +47,21 @@
     <link href="http://edliu.top/2022/07/21/git1-1/"/>
     <id>http://edliu.top/2022/07/21/git1-1/</id>
     <published>2022-07-21T07:06:59.000Z</published>
-    <updated>2022-07-21T08:26:33.620Z</updated>
+    <updated>2022-07-29T07:00:04.416Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;hr /&gt;
+    <summary type="html">&lt;hr&gt;
 &lt;h3</summary>
         
       
     
     
+    
+    <category term="git" scheme="http://edliu.top/categories/git/"/>
     
     
     <category term="学习" scheme="http://edliu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
