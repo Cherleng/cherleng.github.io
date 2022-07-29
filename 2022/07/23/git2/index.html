@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.9k</span>
+            <span class="post-count">2k</span>
         </span>
     </span>
 
@@ -113,7 +113,7 @@
        
   <hr>
 <h3 id="创建版本库仓库">创建版本库（仓库）</h3>
-<p>版本库，即repository，也可以说成是仓库。创建一个仓库被git管理起来以后，你在这个仓库的每一时刻的操作都会被追踪、记录、提交、还原。</p>
+<p>版本库，即repository，也可以说成是仓库。创建一个仓库被git管理起来以后，你在这个<strong>仓库的每一时刻的操作都会被追踪、记录、提交、还原。</strong></p>
 <h4 id="git-init">git init</h4>
 <p>选择一个任意的地方，创建一个文件（目录）,然后在这个空目录中右键选择 “git bash here&quot;选项，输入“git init&quot; 这样我们就完成了对该目录的git初始化。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in F:/gittest/.git/</span><br></pre></td></tr></table></figure>
@@ -122,9 +122,10 @@
 <p>我们在该目录下新建一个txt文件，在里面输入 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello git！</span><br></pre></td></tr></table></figure> <img src="/2022/07/23/git2/git-1.PNG"></p>
 <p>然后我们再执行以下命令将该更新上传到仓库。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git add test.txt</span><br><span class="line"></span><br><span class="line">$ git commit -m&quot;wrote a test file&quot;</span><br><span class="line">[master (root-commit) 9857814] wrote a test file</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 test.txt</span><br></pre></td></tr></table></figure>
-<p>这里的 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add</span><br></pre></td></tr></table></figure> 是指将文件上传到仓库 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;&quot;</span><br></pre></td></tr></table></figure> 是做本次更新的声明，更新的声明在-m后输入，这个声明必要时乱写，为了以后修改、查询方便。</p>
+<p>这里的 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add</span><br></pre></td></tr></table></figure> 是指将修改上传到我们的<strong>暂存区</strong>（此时可以暂时忽略，稍后会讲到） <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;&quot;</span><br></pre></td></tr></table></figure> 是做本次更新的声明，并且将<strong>暂存区</strong>中的修改上传到<strong>版本库</strong>中，更新的声明在-m后输入，这个声明平常不要乱写，为了以后方便修改、查询。</p>
 <p>当我们提交了本次更新的声明以后，命令行出现</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+<p>此时，我们暂存区中的内容就已经成功上传到了版本库中。</p>
 <p>指出这次更新共有一个文件被更改，一个插入（即我们对空文档进行了插入 Hello git！的操作）</p>
 <p>即每次我们将更新上传到仓库中操作有两步，</p>
 <p>第一步</p>
