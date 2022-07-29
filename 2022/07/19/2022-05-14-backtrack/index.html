@@ -79,7 +79,7 @@
   <time datetime="2022-07-19T09:07:38.930Z" itemprop="datePublished">2022-07-19</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
   </div>
   
 <div class="word_count">
@@ -121,14 +121,14 @@
 <p>“不撞南墙”说明了当回溯算法不遇到错误的时候，“不回头”就是不返回上一步重新尝试。</p>
 <p>从引言的那首罗伯特.弗罗斯特的诗里，“可惜我不能同时去涉足”，可是对于回溯算法来说不是这样的，回溯算法看到路走错了就不会继续走了，它会折返到最近的一个分岔口，重新选择一条道路行走。</p>
 <figure>
-<embed src="https://tse1-mm.cn.bing.net/th/id/R-C.91867e276501f596a4802b67aea756f6?rik=T2H1qdJZGAQe7g&amp;riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f50123%2f6755.jpg_wh300.jpg!%2ffh%2f300%2fquality%2f90&amp;ehk=6ZJzrS%2bT3A%2fCApII9W0nWQRrSgaCGaU1C3o6wI7aRLs%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&amp;sres=1&amp;sresct=1" /><figcaption>分岔的道路</figcaption>
+<embed src="https://tse1-mm.cn.bing.net/th/id/R-C.91867e276501f596a4802b67aea756f6?rik=T2H1qdJZGAQe7g&amp;riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f50123%2f6755.jpg_wh300.jpg!%2ffh%2f300%2fquality%2f90&amp;ehk=6ZJzrS%2bT3A%2fCApII9W0nWQRrSgaCGaU1C3o6wI7aRLs%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&amp;sres=1&amp;sresct=1"><figcaption>分岔的道路</figcaption>
 </figure>
 <p>回溯算法可以用来解数独，进行排列组合，解决N皇后等问题</p>
 <h4 id="回溯算法的实现">3.回溯算法的实现</h4>
 <p>让我们来看一看<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-search/">79. 单词搜索</a> 这道题</p>
 <p>这道题要求我们从board里面查找某一个单词（例如：ABCDE)，如果查找到单词，我们就返回True，否则返回False。</p>
 <figure>
-<img src="https://assets.leetcode.com/uploads/2020/11/04/word2.jpg" alt="单词搜索" /><figcaption>单词搜索</figcaption>
+<img src="https://assets.leetcode.com/uploads/2020/11/04/word2.jpg" alt="单词搜索"><figcaption>单词搜索</figcaption>
 </figure>
 <p>如上所示，黄色的路径就代表我们成功找到了“ABCDE”这个连续的单词。我们可以从上、下、左、右四个方向进行单词查找。</p>
 <p>这里有一点需要注意，单词并不需要第一行第一列的数字来开始，我们可以从任何点上开始单词。</p>
