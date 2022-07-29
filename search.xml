@@ -437,9 +437,11 @@ A =  \left|\begin{matrix}
     <content><![CDATA[<hr>
 <h3 id="创建版本库仓库">创建版本库（仓库）</h3>
 <p>版本库，即repository，也可以说成是仓库。创建一个仓库被git管理起来以后，你在这个仓库的每一时刻的操作都会被追踪、记录、提交、还原。</p>
+<h4 id="git-init">git init</h4>
 <p>选择一个任意的地方，创建一个文件（目录）,然后在这个空目录中右键选择 “git bash here&quot;选项，输入“git init&quot; 这样我们就完成了对该目录的git初始化。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in F:/gittest/.git/</span><br></pre></td></tr></table></figure>
 <h3 id="添加文件到仓库">添加文件到仓库</h3>
+<h4 id="git-add-git-commit">git add / git commit</h4>
 <p>我们在该目录下新建一个txt文件，在里面输入 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hello git！</span><br></pre></td></tr></table></figure> <img src="/2022/07/23/git2/git-1.PNG"></p>
 <p>然后我们再执行以下命令将该更新上传到仓库。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add test.txt</span><br><span class="line"></span><br><span class="line">$ git commit -m&quot;wrote a test file&quot;</span><br><span class="line">[master (root-commit) 9857814] wrote a test file</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 test.txt</span><br></pre></td></tr></table></figure>
@@ -453,21 +455,24 @@ A =  \left|\begin{matrix}
 <p>第二步</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit -m &quot;&quot;</span><br></pre></td></tr></table></figure>
 <h3 id="查看此时的仓库状态">查看此时的仓库状态</h3>
+<h4 id="git-status">git status</h4>
 <p>此时，我们在命令行输入 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure> 此时，命令行告诉我们 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure></p>
 <p>在分支 master上，没有什么需要去更新上传的，工作目录是干净的。</p>
 <p>此时，如果我们对test.txt文档进行一下修改。</p>
+<p>增添一句 i love git!</p>
 <p><img src="/2022/07/23/git2/git-2.PNG"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   test.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
-<p>这里告诉我们在分支master上产生了一个更改但是没有更新上传（not staged for commit）并且告诉我们了如何从工作区（working area）上传到版本库中（git direcotory。</p>
+<p>这个时候命令行告诉了我们在分支“master”上产生了一个更改但是没有上传（not staged for commit）并且告诉了我们如何从工作区（working area）上传到版本库中（git direcotory）。</p>
 <p>git status命令可以让我们时刻掌握仓库当前的状态。</p>
-<p>使用 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></table></figure> 可以查看我们在哪个地方进行了修改操作。</p>
 <h3 id="查看我们的更新日志">查看我们的更新日志</h3>
-<p>我们再增添一下test的内容。</p>
+<p>我们再增删一下test.txt的内容，改为下面这样。</p>
 <p><img src="/2022/07/23/git2/git-8.PNG"></p>
+<h4 id="git-log">git log</h4>
 <p>此时，我们在命令行输入git log 可以看到我们的所有commit操作。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit fdfc94c2abdcaa55fdf2255dae2b7d0cd83c08bb (HEAD -&gt; master)</span><br><span class="line">Author: Cherleng &lt;2501687225@qq.com&gt;</span><br><span class="line">Date:   Thu Jul 28 15:02:20 2022 +0800</span><br><span class="line"></span><br><span class="line">    append really</span><br><span class="line"></span><br><span class="line">commit 13221dae0aee03c5db614ae3232716e078ce65c6</span><br><span class="line">Author: Cherleng &lt;2501687225@qq.com&gt;</span><br><span class="line">Date:   Thu Jul 28 14:59:53 2022 +0800</span><br><span class="line"></span><br><span class="line">    update 2</span><br><span class="line"></span><br><span class="line">commit 98578141519e1abbb6d6f76d0f03cdb2de86c556</span><br><span class="line">Author: Cherleng &lt;2501687225@qq.com&gt;</span><br><span class="line">Date:   Thu Jul 28 14:38:02 2022 +0800</span><br><span class="line"></span><br><span class="line">    wrote a test file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>可以看到我们进行了三次提交。</p>
 <p>commit 后面的一大串数字代表我们此次更新的版本号，这个版本号可以让我们随时“穿越”到任何一个commit过的修改。(注意：这里能穿越的一定是我们已经comiit上传的版本，如果没有进行commit操作，我们是无法穿越的)</p>
+<h4 id="git-reset">git reset</h4>
 <p>使用“git reset --hard(版本号)就可以回退到任何一个已经被提交的修改。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git reset --hard 13221</span><br><span class="line">HEAD is now at 13221da update 2</span><br></pre></td></tr></table></figure>
 <p>此时我们再打开test.txt 发现里面的内容以及变成了我们第二次修改时候的内容。</p>
@@ -478,7 +483,19 @@ A =  \left|\begin{matrix}
 <p><img src="/2022/07/23/git2/git11.PNG"></p>
 <p>master 代表我们此时操作的分支（branch），默认情况下没有改变分支的话，我们在初始化git的时候创建的就是master分支。</p>
 <p>HEAD-&gt; 指向的就是我们当前的版本，Git允许我们在版本的历史之间穿梭。</p>
+<h4 id="git-diff">git diff</h4>
 <p><img src="/2022/07/23/git2/Git-6.png"></p>
+<p>此时，我们再修改一下test文件，在末尾加一行“i hate git&quot;</p>
+<p><img src="/2022/07/23/git2/hate.PNG"></p>
+<p>此时我们如果要查看现在工作区与版本库之间的差别，可以输入&quot;git diff&quot;来查看工作区与版本库之间的差别。</p>
+<p><img src="/2022/07/23/git2/diff.PNG"></p>
+<h4 id="git-restore">git restore</h4>
+<p>我刚刚输入了“I hate git”，但现在我想还原到版本库中已经commit的没有“I hate git”这一行的那个版本，该怎么办呢？</p>
+<p>Git中仍然可以使这件事轻松的做到。</p>
+<p>我们在命令行中输入 $git restore 就可以让工作区的文件版本回到最近的一次版本库中的版本。</p>
+<p><img src="/2022/07/23/git2/restore.PNG"></p>
+<p>这时候再重新打开test文件，你会发现刚刚的“I hate git”已经被删除了，文件成功重新回到了最近的一次版本库中的版本。</p>
+<h4 id="why">why？</h4>
 <p>为什么Git能够帮助我们在任何版本历史之间穿梭呢？这就涉及到Git不一样的工作原理了。</p>
 <h3 id="工作区与版本库">工作区与版本库</h3>
 <p>工作区就是我们暂时工作的可以观察到的目录。</p>
@@ -489,8 +506,13 @@ A =  \left|\begin{matrix}
 <p><img src="/2022/07/23/git2/git-basic-workflow-codesweetly.png"></p>
 <p>我们在目录中继续创建一个“test2.txt”文件，而不进行git add操作，git status告诉我们发现了一个“Untracked files&quot;test2。</p>
 <p><img src="/2022/07/23/git2/git-5.PNG"></p>
-<p>所以，我们任何的回跳操作其实是因为我们可以在工作区与版本库之间进行“交易”，并且每一次“交易”都有专属的交易代码，让我们在各个“时空”中切换自如。</p>
+<p>如果我们此时进行git commit 的话，test2是不会提交到版本库中的，因为test2没有进行add操作，也就是说test2这个文件是没有进入我们的暂存区的。</p>
+<p>所以，我们任何的时间回跳操作其实是因为我们可以在工作区与版本库之间进行“交易”，并且每一次“交易”都有专属的交易代码，让我们在各个“时空”中切换自如。</p>
 <p><img src="/2022/07/23/git2/keepcalm.png"></p>
+<h3 id="版本库永远值得信赖">版本库永远值得信赖</h3>
+<p>我们现在已经知道了git的工作原理，从工作区、暂存区到版本库。不难发现，在工作区和暂存区中的操作一旦出现失误，仍然可以还原到版本库中的任一节点。版本库中的每一次commit后的节点都有一个专属的版本号与之匹配，所以我们可以随时回退前进。</p>
+<p><img src="/2022/07/23/git2/commit.png"></p>
+<p>所以在日常使用git中，一定要使版本库中的内容更改具有价值，不要任何一个微小操作都commit到版本库中，也不要一直在工作区工作而不提交。要有经常更新版本库的习惯，因为任何一个时刻，我们都可以信赖版本库，利用版本号让我们的工作区还原到版本库中任何的一个节点。</p>
 <hr>
 ]]></content>
       <categories>

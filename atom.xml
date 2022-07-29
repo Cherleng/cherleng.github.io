@@ -6,7 +6,7 @@
   <link href="http://edliu.top/atom.xml" rel="self"/>
   
   <link href="http://edliu.top/"/>
-  <updated>2022-07-29T06:59:41.801Z</updated>
+  <updated>2022-07-29T11:43:46.000Z</updated>
   <id>http://edliu.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://edliu.top/2022/07/23/git2/"/>
     <id>http://edliu.top/2022/07/23/git2/</id>
     <published>2022-07-23T09:07:48.000Z</published>
-    <updated>2022-07-29T06:59:41.801Z</updated>
+    <updated>2022-07-29T11:43:46.000Z</updated>
     
     
       
@@ -29,7 +29,9 @@
         
         
     <summary type="html">&lt;hr&gt;
-&lt;h3</summary>
+&lt;h3 id=&quot;创建版本库仓库&quot;&gt;创建版本库（仓库）&lt;/h3&gt;
+&lt;p&gt;版本库，即repository，也可以说成是仓库。创建一个仓库被git管理起来以后，你在这个仓库的每一时刻的操作都会被追踪、记录、提交、还原。&lt;/p&gt;
+&lt;h4</summary>
         
       
     
