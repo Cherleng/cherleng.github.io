@@ -513,7 +513,6 @@ A =  \left|\begin{matrix}
 <p>所以，我们任何的时间回跳操作其实是因为我们可以在工作区与版本库之间进行“交易”，并且每一次“交易”都有专属的交易代码，让我们在各个“时空”中切换自如。</p>
 <p><img src="/2022/07/23/git2/keepcalm.png"></p>
 <h3 id="深入了解文件的几种状态">深入了解文件的几种状态</h3>
-<p><img src="/2022/07/23/git2/commit.png"></p>
 <p>现在我们已经大致的了解了git在本地的一些操作，这个过程初学者可能会觉得有些繁琐复杂，所以在学习任何一门工具的过程中，最重要的是进行实战，自己去体验这个过程，在体验中也就加深了对这个框架的理解，自然也就能在未来的使用中游刃有余。</p>
 <h4 id="untracked">Untracked</h4>
 <p>我们重新建立一个工作目录，在目录中新建一个<code>test.txt</code>文件。此时不进行任何操作，用status查看仓库状态。</p>
@@ -536,6 +535,104 @@ A =  \left|\begin{matrix}
 <li><a href="https://www.cnblogs.com/thirteen-yang/p/13878118.html">Git中文件的4种状态Untracked、Unmodify、Modified、Staged</a></li>
 </ul>
 <hr>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git学习笔记 - 远程使用Git(使用Github)</title>
+    <url>/2022/08/01/git3/</url>
+    <content><![CDATA[<p>在上一讲中我们已经大致了解了如何在本地使用git为我们的目录做版本控制管理。但是很显然，在多人合作项目当中，我们不可能只在一台电脑上操作，所以我们也要知道如何远程使用Git。</p>
+<p>远程多人协作，自然需要一个24小时运行的服务器为我们的“心脏”保驾护航，这样我们才能从任何一个地方提交到这个“中心”，并且从这个“中心”获取最新的更新。</p>
+<p>但是幸运的是我们不需要再多置备一台服务器，Github可以为我们的项目进行托管服务。</p>
+<p><img src="/2022/08/01/git3/github.jpg"></p>
+<p>在利用Github对我们的项目进行托管前我们需要设置<code>SSH key</code> 与创建一个Github repository。</p>
+<p>将我们电脑的<code>SSH key</code>生成后提交到我们的github账号上，这样我们电脑的Git仓库与Github仓库之间就建立了传输关系，我们就能把我们在本地的操作提交到远程Github仓库上面。</p>
+<p>同理，如果在另一台电脑上进行此操作也可以将另一台电脑与Github仓库建立关系，我们就可以在任何一台电脑上面对我们的Github仓库进行操作。这样，我们就可以实现多人协作控制项目仓库。</p>
+<h3 id="建立一个github远程仓库">建立一个Github远程仓库</h3>
+<p><img src="/2022/08/01/git3/new_repo.PNG"></p>
+<p>当我们在Github注册了一个账号之后，我们进入<code>Repositories</code>页面中，单机页面右上角的<code>New</code>按钮，创建一个新的仓库。</p>
+<p><img src="/2022/08/01/git3/new.png"></p>
+<p>此时，我们按照Github页面的提示让本地的仓库与这个远程仓库进行关联。</p>
+<p><img src="/2022/08/01/git3/exist.PNG"></p>
+<p>我们在我门的本地目录里面输入<code>git remote add origin git@github.com:Cherleng/git_test.git</code>就能让该目录与该远程仓库关联。</p>
+<h3 id="github远程仓库的操作">Github远程仓库的操作</h3>
+<h4 id="git-push">git push</h4>
+<p>使用<code>git push [alias] [branch]</code>命令，可以将本地的<code>branch</code>分支提交到<code>alias</code>远程仓库中的<code>branch</code>分支。</p>
+<p><img src="/2022/08/01/git3/push.PNG"></p>
+<p>此时，我们再看一下我们的github仓库，就可以看到<code>test.txt</code>文件已经上传到这里了！</p>
+<p><img src="/2022/08/01/git3/afterpush.PNG"></p>
+<p>所以，一个push操作的大致流程就是<code>new -&gt; add -&gt; commit -&gt; push</code></p>
+<h4 id="git-remote">git remote</h4>
+<p>利用<code>git remote</code>来看到我们远程仓库的别名，利用<code>git remote -v</code>可以看到远程仓库的具体信息</p>
+<p><img src="/2022/08/01/git3/remote.PNG"></p>
+<h4 id="git-pull">git pull</h4>
+<p>我们先在github仓库页面对test.txt进行一下修改，我们在最后一行加入<code>i hate git</code>。</p>
+<p><img src="/2022/08/01/git3/hate.PNG"></p>
+<p>此时我们再从本地尝试push到github仓库。</p>
+<p><img src="/2022/08/01/git3/pusherror.PNG"></p>
+<p>此时命令行就报错了，告诉我们这次push操作被拒绝了,原因是在我们之前已经有一个远程提交，命令行提示我们可以使用<code>git pull</code>命令从远程仓库分支抓取下来，然后在本地解决冲突，再推送。</p>
+<p><img src="/2022/08/01/git3/pull.PNG"></p>
+<p>此时，我们打开<code>test.txt</code>文件，就可以看到最下面一行增添了<code>i hate git!</code></p>
+<p>解决冲突后，再进行Push操作，就能够成功的推送到远程仓库了。</p>
+<p>总结来讲，下面这张图就能很好的让我们了解本地与远程的操作线是如何的走了。</p>
+<p><img src="/2022/08/01/git3/localtoremote.png"></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git学习笔记4 - 什么是分支？</title>
+    <url>/2022/08/01/git4/</url>
+    <content><![CDATA[<p>到现在，我们已经知道如何在本地以及远程使用git，但整个过程我们都没有谈及<code>branch</code>这个东西，由于在git初始化的时候建立的分支就是<code>master</code>，所以我们一直操作并且提交的也是<code>master</code>分支，那分支到底有什么用呢？</p>
+<p>实际上，在多人协作以及本地使用git时，分支是一个非常重要的东西。故名思意，分支就是在一个“主线”上面，在某一个“点”分开，并且在某一“点”做的一个延伸、一个“分线”。</p>
+<p>有“分”，自然有“合”，在某个“点”我们又可以把各个分支合并起来，汇聚到这条“主线”上面。</p>
+<p>就像一条奔腾的大河，在某个节点的时候可能会分出很多道小溪，而这些小溪在自己的运动轨道上漂流着，并不会影响其他小溪（大河）的运作，而在某个节点，又能重新和其他小溪（大河）汇聚起来。</p>
+<p>这样一想，分支在项目开发中就显得极为重要了。因为在项目开发中，如果每个人都用<code>master</code>这条进行操作，那会让主线变得十分混乱，我们应该在某个节点，每个人分出一条线对项目进行修改，然后再在某个时间点合并到主工作线上，这样既清晰又减少了项目合作中出现的混乱。</p>
+<p><img src="/2022/08/01/git4/git-branches-merge.png"></p>
+<h4 id="git-branch">git branch</h4>
+<p>使用<code>git branch [name]</code>命令可以建立一个名为<code>name</code>的分支</p>
+<p>使用<code>git branch</code>命令可以查看现在的分支情况，前面带有<code>*</code>表示当前正在操作的分支.</p>
+<p><img src="/2022/08/01/git4/branch.PNG"></p>
+<h4 id="git-checkout-branchname">git checkout (branchname)</h4>
+<p>使用<code>git checkout (branchname)</code>可以切换分支。</p>
+<p><img src="/2022/08/01/git4/checkout.PNG"></p>
+<p>我们此时对<code>test.txt</code>做一些修改，比如在最后一行加入&quot;<code>Hello,edliu!</code>&quot;并且将其上传到本地版本库中。</p>
+<p><img src="/2022/08/01/git4/append.PNG"></p>
+<p>因为我们上传的是<code>test</code>分支，对于<code>master</code>分支，仍然还停留在上一个操作阶段，我们可以从<code>git log</code>命令清晰看出来。</p>
+<p><img src="/2022/08/01/git4/branch2.PNG"></p>
+<p>命令行告诉我们此时<code>HEAD</code>指针指向<code>test</code>分支。</p>
+<p>现在我们使用<code>git checkout master</code>将分支切换为<code>master</code>，我们会发现刚刚在最下面加的<code>Hello,edliu</code>并未存在。</p>
+<h4 id="git-merge">git merge</h4>
+<p>可以使用<code>git merge [name]</code>将名为<code>name</code>的分支合并到当前分支。</p>
+<p><img src="/2022/08/01/git4/switch.PNG"></p>
+<p>此时打开test文件，最下面一行就出现了<code>Hello,edliu!</code>。</p>
+<h4 id="处理合并冲突">处理合并冲突</h4>
+<p>我们在<code>master</code>分支下对文件进行一下修改,并且上传到本地版本库中。</p>
+<p><img src="/2022/08/01/git4/hello.PNG"></p>
+<p>我们再切换为<code>test</code>分支对文件进行一下修改，并且上传到本地版本库中。</p>
+<p><img src="/2022/08/01/git4/goodbye.PNG"></p>
+<p>此时，我们尝试在<code>test</code>分支中将<code>master</code>分支的内容合并过来，但是命令行告诉我们这个合并在<code>test.txt</code>这个文件上出现了冲突，并且告诉我们处理冲突后再进行合并。</p>
+<p><img src="/2022/08/01/git4/mergeconflict.PNG"></p>
+<p>上几节已经讲过，我们可以用<code>git diff</code>来查看二者的冲突在哪。</p>
+<p><img src="/2022/08/01/git4/conflict.PNG"></p>
+<p>此时告诉我们<code>HEAD-&gt;</code>指针指向的分支（<code>test</code>)和<code>master</code>分支的冲突是因为一个是<code>Goodbye git!</code>,一个是<code>hello git</code>。</p>
+<p>发生冲突时，我们只要将<strong>发生冲突的文件</strong>修改为我们需要的正确的版本，再进行<code>add</code>和<code>commit</code>就解决了冲突。</p>
+<p><img src="/2022/08/01/git4/helloand.PNG"></p>
+<p><img src="/2022/08/01/git4/end.PNG"></p>
+<p>合并冲突就这样成功解决了！</p>
+<p>也就是说，在发生冲突的时候，解决冲突实际上就是对当前文件重新再进行一次commit操作。</p>
+<p><img src="/2022/08/01/git4/jieshi.png"></p>
+<p>我们可以通过<code>git log --graph</code>命令来查看合并流程图。</p>
+<p><img src="/2022/08/01/git4/graph.PNG"></p>
 ]]></content>
       <categories>
         <category>git</category>

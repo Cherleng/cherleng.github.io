@@ -6,7 +6,7 @@
   <link href="http://edliu.top/atom.xml" rel="self"/>
   
   <link href="http://edliu.top/"/>
-  <updated>2022-07-30T05:33:30.280Z</updated>
+  <updated>2022-08-01T10:40:23.620Z</updated>
   <id>http://edliu.top/</id>
   
   <author>
@@ -17,11 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Git学习笔记4 - 什么是分支？</title>
+    <link href="http://edliu.top/2022/08/01/git4/"/>
+    <id>http://edliu.top/2022/08/01/git4/</id>
+    <published>2022-08-01T08:48:23.000Z</published>
+    <updated>2022-08-01T10:40:23.620Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;到现在，我们已经知道如何在本地以及远程使用git，但整个过程我们都没有谈及&lt;code&gt;branch&lt;/code&gt;这个东西，由于在git初始化的时候建立的分支就是&lt;code&gt;master&lt;/code&gt;，所以我们一直操作并且提交的也是&lt;code&gt;master&lt;/code&gt;分支，</summary>
+        
+      
+    
+    
+    
+    <category term="git" scheme="http://edliu.top/categories/git/"/>
+    
+    
+    <category term="学习" scheme="http://edliu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git学习笔记 - 远程使用Git(使用Github)</title>
+    <link href="http://edliu.top/2022/08/01/git3/"/>
+    <id>http://edliu.top/2022/08/01/git3/</id>
+    <published>2022-08-01T04:41:23.000Z</published>
+    <updated>2022-08-01T08:51:52.502Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在上一讲中我们已经大致了解了如何在本地使用git为我们的目录做版本控制管理。但是很显然，在多人合作项目当中，我们不可能只在一台电脑上操作，所以我们也要知道如何远程使用Git。&lt;/p&gt;
+&lt;p&gt;远程多人协作，自然需要一个24小时运行的服务器为我们的“心脏”保驾护航，这样我们才</summary>
+        
+      
+    
+    
+    
+    <category term="git" scheme="http://edliu.top/categories/git/"/>
+    
+    
+    <category term="学习" scheme="http://edliu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git学习笔记 2 - 在本地使用Git</title>
     <link href="http://edliu.top/2022/07/23/git2/"/>
     <id>http://edliu.top/2022/07/23/git2/</id>
     <published>2022-07-23T09:07:48.000Z</published>
-    <updated>2022-07-30T05:33:30.280Z</updated>
+    <updated>2022-07-30T05:38:33.155Z</updated>
     
     
       
