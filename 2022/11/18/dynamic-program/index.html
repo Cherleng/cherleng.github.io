@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Git学习笔记4 - 什么是分支？ |  Edliu</title>
+      <title>算法学习 - 动态规划 Dynamic Programming |  Edliu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-git4"
+  id="post-dynamic-program"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Git学习笔记4 - 什么是分支？
+  算法学习 - 动态规划 Dynamic Programming
 </h1>
  
 
@@ -75,11 +75,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/08/01/git4/" class="article-date">
-  <time datetime="2022-08-01T08:48:23.000Z" itemprop="datePublished">2022-08-01</time>
+      <a href="/2022/11/18/dynamic-program/" class="article-date">
+  <time datetime="2022-11-18T02:29:02.535Z" itemprop="datePublished">2022-11-18</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
   </div>
   
 <div class="word_count">
@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">905</span>
+            <span class="post-count">3k</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">10 min</span>
         </span>
     </span>
 </div>
@@ -111,47 +111,74 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>到现在，我们已经知道如何在本地以及远程使用git，但整个过程我们都没有谈及<code>branch</code>这个东西，由于在git初始化的时候建立的分支就是<code>master</code>，所以我们一直操作并且提交的也是<code>master</code>分支，那分支到底有什么用呢？</p>
-<p>实际上，在多人协作以及本地使用git时，分支是一个非常重要的东西。故名思意，分支就是在一个“主线”上面，在某一个“点”分开，并且在某一“点”做的一个延伸、一个“分线”。</p>
-<p>有“分”，自然有“合”，在某个“点”我们又可以把各个分支合并起来，汇聚到这条“主线”上面。</p>
-<p>就像一条奔腾的大河，在某个节点的时候可能会分出很多道小溪，而这些小溪在自己的运动轨道上漂流着，并不会影响其他小溪（大河）的运作，而在某个节点，又能重新和其他小溪（大河）汇聚起来。</p>
-<p>这样一想，分支在项目开发中就显得极为重要了。因为在项目开发中，如果每个人都用<code>master</code>这条进行操作，那会让主线变得十分混乱，我们应该在某个节点，每个人分出一条线对项目进行修改，然后再在某个时间点合并到主工作线上，这样既清晰又减少了项目合作中出现的混乱。</p>
-<p><img src="/2022/08/01/git4/git-branches-merge.png"></p>
-<h4 id="git-branch">git branch</h4>
-<p>使用<code>git branch [name]</code>命令可以建立一个名为<code>name</code>的分支</p>
-<p>使用<code>git branch</code>命令可以查看现在的分支情况，前面带有<code>*</code>表示当前正在操作的分支.</p>
-<p><img src="/2022/08/01/git4/branch.PNG"></p>
-<h4 id="git-checkout-branchname">git checkout (branchname)</h4>
-<p>使用<code>git checkout (branchname)</code>可以切换分支。</p>
-<p><img src="/2022/08/01/git4/checkout.PNG"></p>
-<p>我们此时对<code>test.txt</code>做一些修改，比如在最后一行加入&quot;<code>Hello,edliu!</code>&quot;并且将其上传到本地版本库中。</p>
-<p><img src="/2022/08/01/git4/append.PNG"></p>
-<p>因为我们上传的是<code>test</code>分支，对于<code>master</code>分支，仍然还停留在上一个操作阶段，我们可以从<code>git log</code>命令清晰看出来。</p>
-<p><img src="/2022/08/01/git4/branch2.PNG"></p>
-<p>命令行告诉我们此时<code>HEAD</code>指针指向<code>test</code>分支。</p>
-<p>现在我们使用<code>git checkout master</code>将分支切换为<code>master</code>，我们会发现刚刚在最下面加的<code>Hello,edliu</code>并未存在。</p>
-<h4 id="git-merge">git merge</h4>
-<p>可以使用<code>git merge [name]</code>将名为<code>name</code>的分支合并到当前分支。</p>
-<p><img src="/2022/08/01/git4/switch.PNG"></p>
-<p>此时打开test文件，最下面一行就出现了<code>Hello,edliu!</code>。</p>
-<h4 id="处理合并冲突">处理合并冲突</h4>
-<p>我们在<code>master</code>分支下对文件进行一下修改,并且上传到本地版本库中。</p>
-<p><img src="/2022/08/01/git4/hello.PNG"></p>
-<p>我们再切换为<code>test</code>分支对文件进行一下修改，并且上传到本地版本库中。</p>
-<p><img src="/2022/08/01/git4/goodbye.PNG"></p>
-<p>此时，我们尝试在<code>test</code>分支中将<code>master</code>分支的内容合并过来，但是命令行告诉我们这个合并在<code>test.txt</code>这个文件上出现了冲突，并且告诉我们处理冲突后再进行合并。</p>
-<p><img src="/2022/08/01/git4/mergeconflict.PNG"></p>
-<p>上几节已经讲过，我们可以用<code>git diff</code>来查看二者的冲突在哪。</p>
-<p><img src="/2022/08/01/git4/conflict.PNG"></p>
-<p>此时告诉我们<code>HEAD-&gt;</code>指针指向的分支（<code>test</code>)和<code>master</code>分支的冲突是因为一个是<code>Goodbye git!</code>,一个是<code>hello git</code>。</p>
-<p>发生冲突时，我们只要将<strong>发生冲突的文件</strong>修改为我们需要的正确的版本，再进行<code>add</code>和<code>commit</code>就解决了冲突。</p>
-<p><img src="/2022/08/01/git4/helloand.PNG"></p>
-<p><img src="/2022/08/01/git4/end.PNG"></p>
-<p>合并冲突就这样成功解决了！</p>
-<p>也就是说，在发生冲突的时候，解决冲突实际上就是对当前文件重新再进行一次commit操作。</p>
-<p><img src="/2022/08/01/git4/jieshi.png"></p>
-<p>我们可以通过<code>git log --graph</code>命令来查看合并流程图。</p>
-<p><img src="/2022/08/01/git4/graph.PNG"></p>
+  <h4 id="一.什么是动态规划">一.什么是动态规划？</h4>
+<hr>
+<p>我们先来看一下wiki上面对于动态规划的定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dynamic programming is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions.</span><br></pre></td></tr></table></figure>
+<p>就是说，动态规划是一种<strong>方法</strong>，用于解决复杂问题时将复杂问题转化为一个个<strong>相似的小问题</strong>，所有的问题都只需要计算一次，并且<strong>储存</strong>它们的解。</p>
+<p>很多人学完动态规划后，常常不知所用，不知道该在什么样的情况下面用到动态规划，或者可以说，根本不了解动态规划这个方法的意义所在。所以我们可以在各个平台上面看到对动态规划的人生三问：什么是动态规划？为什么要用动态规划？动态规划的意义是什么？动态规划要往哪里去？</p>
+<p><img src="/2022/11/18/dynamic-program/question.PNG"></p>
+<p>为什么很多人学完动态规划后都有这样的困惑呢？因为刚刚Wiki上面的解释已经很清楚了，动态规划是一种<strong>方法</strong>，动态规划并不是一种一成不变的算法。</p>
+<p>有些算法，比如DFS、BFS算法，你甚至只需要去理解以后记住这个算法的模板，怎么去用，在哪些情况下用，以后遇到类似的问题，将模板转化一下就可以用了。但动态规划不是，这就是动态规划的迷雾所在，有些题你在看了题解以后发现这道题居然能够用动态规划的思路去做，你不禁感叹：动态规划真是好东西...</p>
+<p>按照我个人的理解来说，动态规划就是 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">动态规划就是一种将一个大问题分解为各个独立的小问题，建立一个可保存数据的结构（通常是数组）来缓存小问题已经得出的结果，并且在后面通过一个归纳的方程（即状态转移方程）复用这个结果，得出大问题的结果的一种方法。</span><br></pre></td></tr></table></figure></p>
+<p>如果觉得这段话很绕也没事，注意几个关键字 &quot; <strong>缓存数据</strong> <strong>复用数据</strong> <strong>状态</strong> <strong>转移方程</strong> <strong>方法</strong> &quot; ，这些就是动态规划的要义所在。</p>
+<p>我再来举一个我在网上看到的一个比较幽默的例子吧，也很好的说明了什么是动态规划</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Q：（1+1+1+1+1+1+1+1+1+1+1） = ?</span><br><span class="line"></span><br><span class="line">A：（你一个一个数了，很慢的回答）等于11</span><br><span class="line"></span><br><span class="line">Q：（1+1+1+1+1+1+1+1+1+1+1）+1=？</span><br><span class="line"></span><br><span class="line">A：（你只看到右边多了个+1，快速回答了）等于12</span><br></pre></td></tr></table></figure>
+<p>为什么第二次你不需要一个一个数到底有多少个“1”在等式左边呢？因为第一次问你的时候，你数了，知道等于11。第二次在左边加了个1，对于你来讲，就是问你：11+1=？ 于是你几乎不需要停留，脱口而出：“12”。（恭喜你，达到了小学一年级的水平）</p>
+<p>回到正题，这个例子其实就是在阐述<strong>缓存数据</strong>（缓存了前面的11）、<strong>复用数据</strong>（用到了前面缓存的11）、<strong>转移方程</strong>（在这个例子里就是呈现的算术）这些动态规划的<strong>核心</strong>。</p>
+<h4 id="二.什么问题能用到动态规划">二.什么问题能用到动态规划？</h4>
+<p>什么情况下能用到动态规划？</p>
+<p>就是<strong>满足最优子结构、无后效性</strong>的时候。</p>
+<p>浅显的说，一个问题如果大问题(原问题）<strong>能够分解</strong>为一个个小问题，小问题可以拆分为<strong>更小的问题</strong>，同时，大问题的最优解能够通过小问题的最优解<strong>递推得到</strong>、小问题的答案可以由更小的问题的最优解<strong>递推得到</strong>（这个大与小指规模的大小），这就是满足“<strong>最优子结构</strong>”的问题。</p>
+<p>在这里大问题的结果，我们<strong>只看</strong>小问题的答案，而<strong>不用考虑</strong>小问题的答案是如何得到的，这就是满足“<strong>无后效性</strong>”的问题。即</p>
+<p><strong>“现在就是过去的总结，现在决定未来，未来与过去无关。”</strong></p>
+<p>那么这个问题就能够通过动态规划的思想来解决。</p>
+<p>现在不理解这两个术语意思没事，后面根据一些例子大概就能很好的了解了。</p>
+<p><img src="/2022/11/18/dynamic-program/fenzhi.PNG"></p>
+<p>其实说“什么问题能用动态规划”并不是很恰当，我们应该这样说“<strong>什么问题适合用动态规划来更轻松的解决？</strong>”</p>
+<p>那就是<strong>小问题的答案长期被复用。</strong></p>
+<p><strong>复用</strong>，这个熟悉的词汇又出现了，长期被复用，这才是关键。</p>
+<p>如果不被长期复用，那么除去“缓存、复用”的步骤，这个“定义”依然是可以适用于其他情况的。</p>
+<p>因为从哲学来说，实际上大问题都是可以转化为小问题的。那为什么我们一定要用动态规划呢？我们用递归从上到下暴力求解不也可以吗？还减少了“<strong>找状态转移方程</strong>”这个麻烦的过程，我们直接把数据交给计算机，叫计算机一个一个遍历然后从中筛选取得我们想要的值就行了，要知道计算机最擅长的就是计算，计算机最不怕的就是大量的数据。</p>
+<p>一切的一切，在于<strong>长期被复用</strong>。</p>
+<p>多次被复用，那么用一个结构<strong>储存</strong>当前的结果，以便于后续使用，这才是对我们，对计算机最善良的做法。</p>
+<p>在这里举一个Fibonacci数列的例子，更好的理解长期被复用带来的影响。</p>
+<p><img src="/2022/11/18/dynamic-program/fibo.PNG"> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Fibonacci数列的转移方程是：F(n)=F(n-1)+F(n-2)</span><br><span class="line"></span><br><span class="line">你要求F(100)，自然要知道F(99),F(98)。</span><br><span class="line"></span><br><span class="line">你要求F(99)，自然要知道F(98),F(97).</span><br><span class="line"></span><br><span class="line">你要求F(98)，自然要知道F(97),F(96).</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure> Fibonacci数列在学校基本都是用来讲递归使用的，但是你仔细思考一下，Fibonacci数列用<strong>递归方法</strong>这样轮下去，你会发现你调用了很多很多很多步骤去重复求一个<strong>已经求出来的值</strong>。</p>
+<p>所以我们重新思考一下：</p>
+<ul>
+<li><p>1.Fibonacci数列满足最优子结构吗？答案很明显，Fibonacci数列问题就是一个大问题拆解成小问题，小问题再拆解成小小问题来解决的.</p></li>
+<li><p>2.Fibonacci数列满足无后效性吗？答案也是很明显的，Fibonacci数列很明显也只需要用到N-1和N-2的数值即可.</p></li>
+</ul>
+<p>递归方法，你要从F(99)求到F(1)，然后再从F(98)求到F(1)，你才能得到F（100）</p>
+<p>动态规划，我们第一次求到F（99）的时候直接保存值（很明显，每一个值在Fibonacci数列里面都会调用多次），后期用到直接拿来用，省下的时间复杂度是指数级别，不是一点半点。</p>
+<h4 id="三.动态规划思路">三.动态规划思路</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.明确题目里的状态</span><br><span class="line"></span><br><span class="line">2.明确DP数组的定义</span><br><span class="line"></span><br><span class="line">3.做出正确的状态转移方程。</span><br></pre></td></tr></table></figure>
+<p>在Fibonacci数列问题里面，我们要求的是指定数字的Fibonacci值</p>
+<p><strong>状态</strong>自然就是数字n，</p>
+<p>我们把F（n）<strong>定义</strong>为：数字为n时的Fibonacci值</p>
+<p>那么根据我们的状态定义，该题正确的<strong>状态转移方程</strong>是 F(n)=F(n-1)+F(n-2)</p>
+<p>每一次求出F（n），我们就把这个值<strong>保存起来</strong>，实现了<strong>缓存数据</strong>并<strong>复用</strong>。</p>
+<p>以上任何一个环节定义错误，都会影响到下一环节的进行，这就要求我们明确状态、明确DP数组的定义，不然转移方程有可能会不再适用（也就是脱离了“最优子结构”或脱离了“无后效性”），也就自然得出了错误的最终结果。</p>
+<p>这种情况下，我们要重新考虑状态、重新考虑DP数组的定义。确保DP状态的定义满足：</p>
+<ul>
+<li>1.最优子结构</li>
+<li>2.无后效性</li>
+</ul>
+<p>通过几个题目，我本人的一般处理思路是： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.思考状态是否找对、找全？下一结果不能由当前结果递推得到（也就是说，当前的DP状态定义不满足“最优子结构”），有可能是状态不够，也许这个DP数组可以升为二维、三维甚至更多维来解决（参考 Leetcode.买卖股票问题）、或者可能要用到两个、多个状态定义来做（参考 Leetcode.乘积最大子数组）用到来储存更多状态.</span><br><span class="line"></span><br><span class="line">状态越明确，范围越明确，从而可以从更多的状态（更为明确的范围）里面做出正确的选择，找出正确的状态转移方程。</span><br><span class="line"></span><br><span class="line">2.思考DP数组的定义是否正确？DP[i]储存的东西是什么？变换一下思路，定义正确的DP数组，充分仔细考虑问题条件与所求，确保储存的东西一经确定，不会受到未来（过去）的影响。（参考最长子数组和问题）</span><br></pre></td></tr></table></figure></p>
+<p><strong>为什么一定要保证状态的定义满足最优子结构、无后效性？</strong></p>
+<p>上面已经写了，DP数组定义不适当的话，不仅找不到合适的状态转移方程，而且在做题过程中可能会混乱状态，不知所然。</p>
+<p>拿 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-subarray/">最长子数组和</a> 的问题来举例.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</span><br><span class="line"></span><br><span class="line">子数组 是数组中的一个连续部分。</span><br><span class="line"></span><br><span class="line">示例 1：</span><br><span class="line"></span><br><span class="line">输入：nums = [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出：6</span><br><span class="line">解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。</span><br></pre></td></tr></table></figure>
+<p>如果你做了一些其他求最值的动态规划的题目，不按步骤一一考虑，按所谓“经验”，胡乱的你可能就这样定义F[i]了：前i个数字里面的最大子数组和，结果输出F[len(nums)-1]就行了。</p>
+<p>看起来似乎没毛病，但当你按这个定义时，状态转移方程怎么找？</p>
+<p>举个例子，nums = [4,-1,5] 这个数组，当你一开始选了4的时候，max更新为4，由于下一个是-1，4-1=3，比之前的小了，于是你放弃了选择-1，放弃了继续连续，于是你重新开始，选了[3]，max = 5。这就是<strong>鼠目寸光</strong>，如果你继续选，max是可以达到4-1+5=8的。</p>
+<p>于是，我们应该这样定义F(n)：以n为右端点的子数组的最大和。</p>
+<p>于是，以每一个数字为右端点的子数组和就都有了，然后我们再考虑后面的结果加不加这个值，这样就会避免再出现之前鼠目寸光的情况，最后从所有的F（n）中选出最大值，也就是以n为右端点的子数组的最大值就是最长子数组和的大小。</p>
+<p>所以这道题目的状态转移方程为： <span class="math display">\[
+F(i) = max(nums[i],nums[i]+F(i-1)) | i\ \le n
+\]</span> 关键就在于，这个问题问的是<strong>数组和</strong>。要么<strong>连续</strong>，要么<strong>重新开始、割舍一切</strong>。所以，最大值不一定是F(end）,我们应该从F（1..end)里面寻找<strong>最大值</strong>，即为我们要求的最大子数组和。</p>
+<p>该题的Python解法代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">nums = [<span class="number">0</span>]+[-<span class="number">2</span>,<span class="number">1</span>,-<span class="number">3</span>,<span class="number">4</span>,-<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,-<span class="number">5</span>,<span class="number">4</span>]</span><br><span class="line">n = <span class="built_in">len</span>(nums)</span><br><span class="line">dp=[<span class="number">0</span>]*n</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n):</span><br><span class="line">    dp[i] = <span class="built_in">max</span>(nums[i],nums[i]+dp[i-<span class="number">1</span>])</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    res = <span class="built_in">max</span>(res,dp[i]);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
  
       <!-- reward -->
       
@@ -216,7 +243,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://edliu.top/2022/08/01/git4/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://edliu.top/2022/11/18/dynamic-program/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -229,19 +256,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/11/18/dynamic-program/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            算法学习 - 动态规划 Dynamic Programming
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/08/01/git3/" class="article-nav-link">
+      <a href="/2022/08/01/git4/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Git学习笔记 - 远程使用Git(使用Github)</div>
+        <div class="article-nav-title">Git学习笔记4 - 什么是分支？</div>
       </a>
     
   </nav>
