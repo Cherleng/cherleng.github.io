@@ -676,7 +676,9 @@ A =  \left|\begin{matrix}
 <p>一切的一切，在于<strong>长期被复用</strong>。</p>
 <p>多次被复用，那么用一个结构<strong>储存</strong>当前的结果，以便于后续使用，这才是对我们，对计算机最善良的做法。</p>
 <p>在这里举一个Fibonacci数列的例子，更好的理解长期被复用带来的影响。</p>
-<p><img src="/2022/11/18/dynamic-program/fibo.PNG"> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Fibonacci数列的转移方程是：F(n)=F(n-1)+F(n-2)</span><br><span class="line"></span><br><span class="line">你要求F(100)，自然要知道F(99),F(98)。</span><br><span class="line"></span><br><span class="line">你要求F(99)，自然要知道F(98),F(97).</span><br><span class="line"></span><br><span class="line">你要求F(98)，自然要知道F(97),F(96).</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure> Fibonacci数列在学校基本都是用来讲递归使用的，但是你仔细思考一下，Fibonacci数列用<strong>递归方法</strong>这样轮下去，你会发现你调用了很多很多很多步骤去重复求一个<strong>已经求出来的值</strong>。</p>
+<p><img src="/2022/11/18/dynamic-program/fibo.PNG"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Fibonacci数列的转移方程是：F(n)=F(n-1)+F(n-2)</span><br><span class="line"></span><br><span class="line">你要求F(100)，自然要知道F(99),F(98)。</span><br><span class="line"></span><br><span class="line">你要求F(99)，自然要知道F(98),F(97).</span><br><span class="line"></span><br><span class="line">你要求F(98)，自然要知道F(97),F(96).</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Fibonacci数列在学校基本都是用来讲递归使用的，但是你仔细思考一下，Fibonacci数列用<strong>递归方法</strong>这样轮下去，你会发现你调用了很多很多很多步骤去重复求一个<strong>已经求出来的值</strong>。</p>
 <p>所以我们重新思考一下：</p>
 <ul>
 <li><p>1.Fibonacci数列满足最优子结构吗？答案很明显，Fibonacci数列问题就是一个大问题拆解成小问题，小问题再拆解成小小问题来解决的.</p></li>
